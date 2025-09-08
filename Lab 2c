@@ -1,6 +1,6 @@
 # Python Variable, Memory, and Problem-Solving Exercises
 
-# ---- Variable Memory Usage ----
+# Variable Memory Usage
 
 # var1 example
 var1 = 10
@@ -20,7 +20,7 @@ print("Memory address of var2 (100):", hex(id(var2)))
 # Explanation:
 # Python may reuse memory for small integers (-5 to 256), so var2 may share the same address as var1.
 
-# ---- Memory Map for Strings ----
+# Memory Map for Strings 
 
 str1 = "Hello"
 str2 = "World"
@@ -36,7 +36,7 @@ for i in range(len(str2)):
 # Explanation:
 # Each character in a string is an immutable object with its own memory address.
 
-# ---- String Operations ----
+# String Operations
 
 x = "dog"
 y = "cat"
@@ -50,7 +50,7 @@ print('"the " + x + " chases the " + y:', "the " + x + " chases the " + y)  # "t
 # Repetition
 print("x * 4:", x * 4)  # "dogdogdogdog"
 
-# ---- Incrementing an Integer ----
+# Incrementing an Integer
 
 x = 50
 
