@@ -1,18 +1,29 @@
-Python Assignment
+# Python Assignment
 
-a. Print the following statements using multiple `print()` statements:
+# Printing Statements
 
-```python
+# Print lines of a famous quote using multiple print() statements
 print("All the world's a stage,")
 print("And all the men and women merely players:")
 print("They have their exits and their entrances;")
 print("And one man in his time plays many parts,")
 print("His acts being seven ages.")
+
+# Print the same quote in a single statement with newline characters
 print("All the world's a stage, \nAnd all the men and women merely players: \nThey have their exits and their entrances; \nAnd one man in his time plays many parts, \nHis acts being seven ages.")
+
+# Print IP address-like numbers with custom separator
 print("127", "0", "0", "1", sep=".")
+
+# Simulating a Loading Process
+
 import time
 
+# Loop to simulate a loading process with flush=True to immediately print
 for i in range(5):
     print(f"Loading... {i+1}", flush=True)
-    time.sleep(1)
+    time.sleep(1)  # Pause for 1 second
+
+# Print a final statement that is immediately flushed
 print("This is immediately flushed.", flush=True)
+
