@@ -1,0 +1,64 @@
+Python Variable, Memory, and Problem-Solving Exercises
+
+Variable memory usage
+print("---- Variable Memory Usage ----")
+
+var1 example
+var1 = 10
+print("Memory address of var1 (10):", hex(id(var1)))
+
+var1 = 100
+print("Memory address of var1 (100):", hex(id(var1)))
+
+Explanation:
+There are two distinct addresses because integers are immutable in Python.
+Updating var1 creates a new integer object and assigns it to var1.
+
+var2 example
+var2 = 100
+print("Memory address of var2 (100):", hex(id(var2)))
+
+Explanation:
+Python may reuse memory for small integers (-5 to 256), so var2 may share the same address as var1.
+Memory map for strings
+print("\n---- Memory Map for Strings ----")
+
+str1 = "Hello"
+str2 = "World"
+
+Memory addresses for str1
+for i in range(len(str1)):
+print(f"Address of str1[{i}] ({str1[i]}):", hex(id(str1[i])))
+
+Memory addresses for str2
+for i in range(len(str2)):
+print(f"Address of str2[{i}] ({str2[i]}):", hex(id(str2[i])))
+
+Explanation:
+Each character in a string is an immutable object with its own memory address.
+
+Problem-solving with strings
+print("\n---- String Operations ----")
+
+x = "dog"
+y = "cat"
+
+Concatenation
+print("x + y:", x + y)  # "dogcat"
+
+Sentence construction
+print('"the " + x + " chases the " + y:', "the " + x + " chases the " + y)  # "the dog chases the cat"
+
+Repetition
+print("x * 4:", x * 4)  # "dogdogdogdog"
+
+Incrementing an integer
+print("\n---- Incrementing an Integer ----")
+
+x = 50
+x = x + 1  # Increment x by 1
+print("x after increment:", x)  # Output: 51
+
+Alternative shorthand:
+x += 1  # Also increments x by 1
+print("x after shorthand increment:", x)  # Output: 52
