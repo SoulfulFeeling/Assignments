@@ -1,18 +1,13 @@
-# ===============================
-# 1. User Input
-# ===============================
-
-# (a) Kilograms → Pounds
-# Formula: pounds = kilograms * 2.2
+1. User Input
+(a) Kilograms → Pounds
+Formula: pounds = kilograms * 2.2
 kg = float(input("Enter weight in kilograms: "))
 pounds = kg * 2.2
 print(f"{kg} kg is {pounds:.2f} lb")
 
-# ----------------------------------
-
-# (b) Credit Card Interest (Average Daily Balance)
-# averageDailyBalance = (netBalance * d1 - payment * d2) / d1
-# interest = averageDailyBalance * monthlyRate
+(b) Credit Card Interest (Average Daily Balance)
+averageDailyBalance = (netBalance * d1 - payment * d2) / d1
+interest = averageDailyBalance * monthlyRate
 
 net_balance = float(input("\nEnter net balance shown on the bill: "))
 payment = float(input("Enter payment amount made: "))
@@ -26,12 +21,10 @@ interest = avg_daily_balance * monthly_rate
 print(f"Average daily balance: ${avg_daily_balance:.2f}")
 print(f"Interest this month: ${interest:.2f}")
 
-# ----------------------------------
-
-# (c) Distance Between Two Cars
-# Car A west speed = x mph, Car B south speed = y mph
-# After time t hours:
-#   Distance = sqrt((x*t)^2 + (y*t)^2)
+(c) Distance Between Two Cars
+Car A west speed = x mph, Car B south speed = y mph
+After time t hours:
+Distance = sqrt((x*t)^2 + (y*t)^2)
 
 import math
 
@@ -46,9 +39,7 @@ distance = math.hypot(x * t, y * t)  # same as sqrt((x*t)**2 + (y*t)**2)
 
 print(f"After {hours}h {minutes}m, the shortest distance between the cars is {distance:.2f} miles.")
 
-# ===============================
 # 2. Troubleshooting
-# ===============================
 
 """
 a. hello = "hello"   → Valid.
@@ -58,9 +49,8 @@ d. print = "print"   → Legal, but shadows built-in print() function.
 e. False = 0         → Invalid. Cannot assign to reserved literal 'False'.
 """
 
-# ===============================
-# 3. Challenges Faced
-# ===============================
+3. Challenges Faced
+
 
 """
 - Converting elapsed time into decimal hours required combining hours and minutes correctly.
