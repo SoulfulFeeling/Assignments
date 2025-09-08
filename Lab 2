@@ -1,0 +1,18 @@
+# Python Assignment
+
+## a. Print the following statements using multiple `print()` statements:
+
+```python
+print("All the world's a stage,")
+print("And all the men and women merely players:")
+print("They have their exits and their entrances;")
+print("And one man in his time plays many parts,")
+print("His acts being seven ages.")
+print("All the world's a stage, \nAnd all the men and women merely players: \nThey have their exits and their entrances; \nAnd one man in his time plays many parts, \nHis acts being seven ages.")
+print("127", "0", "0", "1", sep=".")
+import time
+
+for i in range(5):
+    print(f"Loading... {i+1}", flush=True)
+    time.sleep(1)
+print("This is immediately flushed.", flush=True)
