@@ -1,6 +1,6 @@
-# Python Assignment
+Python Assignment
 
-## a. Print the following statements using multiple `print()` statements:
+a. Print the following statements using multiple `print()` statements:
 
 ```python
 print("All the world's a stage,")
