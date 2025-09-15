@@ -1,0 +1,181 @@
+# Comparison Operators
+
+print(2 < 5)        # True
+print(10 <= 10)     # True
+
+x = 10
+print(20 < x)       # False
+print("A" < "a")    # True (ASCII of 'A' = 65, 'a' = 97)
+print("Monday" > "Tuesday")  # False ('M'=77, 'T'=84)
+
+# ASCII values of keyboard characters
+for i in range(32, 127):
+    print(chr(i), ":", i)
+
+# Logical Operators
+
+print(10 > 4 and 50 < 100)   # True
+print(10 < 4 and 50 < 100)   # False
+print(10 < 4 or 50 > 100)    # False
+print(10 > 4 or 50 > 100)    # True
+print(not (10 > 4))          # False
+
+# Bitwise Logical Operators
+
+x = 0b1110   # binary 14
+y = 0b1011   # binary 11
+result = x | y
+print(result)        # 15
+print(bin(result))   # 0b1111
+
+# Decision Statements
+
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+
+if number1 > number2:
+    larger_number = number1
+else:
+    larger_number = number2
+print("The larger number is:", larger_number)
+
+x = 10
+if x > 5:
+    if x == 6:
+        print("nested: x == 6")
+    elif x == 10:
+        print("nested: x == 10")
+    else:
+        print("nested: else")
+else:
+    print("else")
+
+# Largest of Three Numbers
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
+
+if a >= b and a >= c:
+    largest = a
+elif b >= a and b >= c:
+    largest = b
+else:
+    largest = c
+print("The largest number is:", largest)
+
+# Even or Odd (3 Approaches)
+
+n = int(input("Enter a number: "))
+
+# Approach 1
+if n % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+# Approach 2
+if (n // 2) * 2 == n:
+    print("Even")
+else:
+    print("Odd")
+
+# Approach 3 (Bitwise AND)
+if n & 1 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+# Grading Scheme
+
+score = int(input("Enter your percentage: "))
+
+if score > 90:
+    grade = "A"
+    desc = "Work of genuinely superior quality."
+elif score >= 80:
+    grade = "B"
+    desc = "Upper distribution of passing grades."
+elif score >= 71:
+    grade = "C"
+    desc = "Center of the distribution of passing grades."
+elif score >= 65:
+    grade = "D"
+    desc = "Lower distribution of passing grades."
+else:
+    grade = "F"
+    desc = "Failing performance; needs improvement."
+
+print("Grade:", grade)
+print("Description:", desc)
+
+# Truth Tables
+
+values = [True, False]
+
+print("AND Truth Table")
+for a in values:
+    for b in values:
+        print(a, "AND", b, "=", a and b)
+
+print("\nOR Truth Table")
+for a in values:
+    for b in values:
+        print(a, "OR", b, "=", a or b)
+
+print("\nNOT Truth Table")
+for a in values:
+    print("NOT", a, "=", not a)
+
+# 5e. Even/Odd Using Bitwise AND
+
+n = int(input("Enter an integer: "))
+if n & 1 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+# Code Revision (Nested if/elif/else)
+
+name = input("What's your name? ")
+time = int(input("What time is it? (24hr format, e.g., 1300) "))
+
+if time < 1200:
+    print("Hi " + name + ", good morning!")
+elif time < 1800:
+    print("Hi " + name + ", good afternoon!")
+else:
+    print("Hi " + name + ", good evening!")
+
+print("Good Bye")
+
+# Output Verification
+
+x = 1
+y = 1.0
+z = "1"
+
+if x == y:
+    print("one")
+if y == int(z):
+    print("two")
+elif x == y:
+    print("three")
+else:
+    print("four")
+
+# Confusion about why "A" < "a" is True due to ASCII comparisons rather than alphabetical order
+# Mixing up and VS & or VS `
+
+# Difficulty keeping track of nested conditions and indentation, which can lead to unexpected behavior
+
+# Forgetting to conver iput strings to integers, causing comparison errors
+
+# Confusion about how modulus %, floor division //, and bitwise & all work differently but achieve the same goal
+
+# Struggling to interpret Python error messages, e.g., missing colons or indentation errors
+
+
+
+
+
