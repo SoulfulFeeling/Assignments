@@ -1,0 +1,85 @@
+# Python Loops 
+
+# Collatz Sequence (n0)
+print("Collatz Sequence")
+n0 = int(input("Enter a non-zero, non-negative integer: "))
+steps = 0
+
+while n0 != 1:
+    if n0 % 2 == 0:
+        n0 = n0 // 2
+    else:
+        n0 = 3 * n0 + 1
+    print(n0)
+    steps += 1
+
+print("steps =", steps)
+print()
+
+# Infinite Loop Example & Fix
+print("Infinite Loop Example")
+i = 0
+while True:
+    print(i)
+    i += 1
+    if i > 10:  # prevent infinite loop
+        print("Fixed infinite loop, exiting...")
+        break
+print()
+
+# Arithmetic Operation with Restart Option
+print("Arithmetic Operations")
+while True:
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    
+    print("Choose operation: +, -, *, /")
+    op = input("Enter operation: ")
+    
+    if op == "+":
+        result = num1 + num2
+    elif op == "-":
+        result = num1 - num2
+    elif op == "*":
+        result = num1 * num2
+    elif op == "/":
+        if num2 != 0:
+            result = num1 / num2
+        else:
+            result = "Cannot divide by zero"
+    else:
+        result = "Invalid operation"
+    
+    print("Result:", result)
+    
+    cont = input("Do you want to continue? (Y/N): ")
+    if cont.lower() != "y":
+        print("Have a good day.")
+        break
+print()
+
+# Character Counting in a Text
+print("Character Counting")
+text = input("Enter a sentence: ")
+text = text.lower()  # ignore case
+
+total_letters = 0
+letter_count = {}
+
+for char in text:
+    if char.isalpha():  # only count letters
+        total_letters += 1
+        if char in letter_count:
+            letter_count[char] += 1
+        else:
+            letter_count[char] = 1
+
+print("Total number of alphabets:", total_letters)
+print("Total number of distinct alphabets are:")
+for char, count in letter_count.items():
+    print(f"{char} = {count}")
+
+# Challenges
+# To understand how while loops work and when the loop will stop, especially with conditions like n0 !=
+# Understanding why the sequence follows n0 ÷ 2 for even and 3 * n0 + 1 for odd numbers can be confusing at first
+# Forgetting to convert input strings to integers can cause errors when performing arithmetic or comparisons
