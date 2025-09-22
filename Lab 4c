@@ -1,0 +1,139 @@
+# 1a) Unit conversion program (kpl <-> mpg)
+
+
+def kpl_to_mpg(*kpl_values):
+    """Convert kilometers per liter to miles per gallon"""
+    mpg_values = []
+    for kpl in kpl_values:
+        try:
+            kpl = float(kpl)
+            mpg = kpl * 2.35215  # 1 kpl ≈ 2.35215 mpg
+            mpg_values.append(round(mpg, 2))
+        except ValueError:
+            print(f"Invalid input detected: {kpl}. Skipping this value.")
+    return mpg_values
+
+def mpg_to_kpl(*mpg_values):
+    """Convert miles per gallon to kilometers per liter"""
+    kpl_values = []
+    for mpg in mpg_values:
+        try:
+            mpg = float(mpg)
+            kpl = mpg / 2.35215
+            kpl_values.append(round(kpl, 2))
+        except ValueError:
+            print(f"Invalid input detected: {mpg}. Skipping this value.")
+    return kpl_values
+
+# User interface for conversion
+while True:
+    print("Unit Conversion Program")
+    choice = input("Convert from (1) kpl to mpg or (2) mpg to kpl? (Enter 1 or 2, or Q to quit): ").upper()
+    if choice == "Q":
+        break
+    values = input("Enter the values separated by spaces: ").split()
+    if choice == "1":
+        result = kpl_to_mpg(*values)
+        print("Converted values (mpg):", result)
+    elif choice == "2":
+        result = mpg_to_kpl(*values)
+        print("Converted values (kpl):", result)
+    else:
+        print("Invalid choice. Please enter 1, 2, or Q.")
+    print("-" * 50)
+
+
+# 1b) Function to print unnamed arguments in reverse order
+
+def print_reverse(*args):
+    print("Values in reverse order:", args[::-1])
+
+print("1b) Demonstrating reverse printing function:")
+print_reverse(1, 2, 3, 4, 5)
+print("-" * 50)
+
+
+# 1c) Effects of changing lists/dictionaries inside functions
+
+def modify_list(lst):
+    lst.append("New Item")  # Changes visible outside function
+
+my_list = [1, 2, 3]
+modify_list(my_list)
+print("List after function call:", my_list)
+
+def modify_dict(d):
+    d["NewKey"] = "Value"  # Changes visible outside function
+
+my_dict = {"A": 10}
+modify_dict(my_dict)
+print("Dictionary after function call:", my_dict)
+
+# To minimize risk: pass a copy
+def safe_modify(lst):
+    lst_copy = lst.copy()
+    lst_copy.append("Safe Item")
+    return lst_copy
+
+new_list = safe_modify(my_list)
+print("Original list remains unchanged:", my_list)
+print("Modified copy:", new_list)
+print("-" * 50)
+
+
+# 1d) Global and local variable demonstration
+
+x = 5
+
+def funct_1():
+    x = 3  # local, does not change global x
+
+def funct_2():
+    global x
+    x = 2  # changes global x
+
+funct_1()
+print("Value of x after funct_1():", x)  # 5
+
+funct_2()
+print("Value of x after funct_2():", x)  # 2
+print("-" * 50)
+
+# 2) Troubleshooting-
+
+# 2a) Correcting **kwargs usage
+def my_func(a, b, *args):
+    print("Extra arguments:", args)
+
+print("2a) Corrected function call:")
+my_func(1, 2, 3, 4, 5, 6)
+print("-" * 50)
+
+# 2b) Correcting global variable usage
+x = 10
+def my_func_global():
+    global x
+    x = 100
+
+my_func_global()
+print("2b) Global x after function call:", x)
+print("-" * 50)
+
+# 2c) TypeError demonstration
+print("2c) Demonstrating TypeError for unhashable type:")
+try:
+    error_dict = {[1, 2, 3]: "value"}  # lists cannot be dictionary keys
+except TypeError as e:
+    print("Error:", e)
+print("-" * 50)
+
+
+# Challenges
+
+print("Challenges faced during the exercise:")
+print("- Implementing input validation and handling multiple arguments in unit conversion functions")
+print("- Understanding the difference between local and global variables")
+print("- Demonstrating how changes to mutable objects like lists and dictionaries persist outside functions")
+print("- Correcting misuse of *args and **kwargs in troubleshooting exercises")
+print("- Explaining TypeError for unhashable types clearly")
+print("- Designing interactive, user-friendly scripts while following exercise restrictions")
