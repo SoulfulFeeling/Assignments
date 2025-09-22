@@ -1,0 +1,135 @@
+# Create a dictionary of choice with 10 elements
+
+print("1a) Dictionary with 10 elements:")
+my_dict = {
+    "Name": "Kash",
+    "Age": 35,
+    "Major": "Cybersecurity",
+    "City": "San Diego",
+    "State": "CA",
+    "GPA": 3.8,
+    "GraduationYear": 2027,
+    "Hobby": "Photography",
+    "FavoriteColor": "Rainbow",
+    "Pet": "Hummingbird"
+}
+print("My dictionary:", my_dict)
+print("-" * 50)
+
+
+# Take user input to add to a dictionary
+
+print("1b) User input dictionary:")
+my_user_dict = {}
+continue_input = "Y"
+
+while continue_input.upper() == "Y":
+    ssn = input("Enter SSN (format: 111-222-3333): ")
+    name = input("Enter Name: ")
+    my_user_dict[ssn] = name
+    continue_input = input("Do you want to continue (Y/N)? ")
+
+print("User dictionary:", my_user_dict)
+print("Number of keys in user dictionary:", len(my_user_dict))
+print("-" * 50)
+
+
+# Converting tuples into a dictionary
+
+print("Converting list of tuples into dictionary:")
+a = [("a", 1), ("b", 2), ("c", 3)]
+res = dict(a)
+print("Result:", res)
+print("-" * 50)
+
+
+# Check for key duplication in a tuple list and correct
+
+print("1c) Checking key duplication:")
+tuple_list = [
+    ('Name', 'Sarah Connor'),
+    ('Date of birth', '1 Jan 1980'),
+    ('Address', '1000 Black Mountain Drive, 92126'),
+    ('Name', 'Jim Hawkins')
+]
+
+dup_dict = {}
+for item in tuple_list:
+    key = item[0]
+    value = item[1]
+    while key in dup_dict:
+        print(f"Duplicate key found: {key}")
+        key = input(f"Please enter a new key to replace '{key}': ")
+    dup_dict[key] = value
+
+print("Corrected dictionary:", dup_dict)
+print("-" * 50)
+
+
+# Convert a list into a dictionary using a loop
+
+print("1d) Converting list into dictionary:")
+list_items = [("Math", 90), ("English", 85), ("Science", 92), ("History", 88)]
+dict_from_list = {}
+for pair in list_items:
+    dict_from_list[pair[0]] = pair[1]
+
+print("Converted dictionary:", dict_from_list)
+print("-" * 50)
+
+
+# Count words in a text using dictionary
+
+print("1e) Word count using dictionary:")
+text = """The tiger (Panthera tigris) is a large cat and a member of the genus Panthera native to Asia. It has a powerful, muscular body with a large head and paws, a long tail and orange fur with black, mostly vertical stripes. It is traditionally classified into nine recent subspecies, though some recognise only two subspecies, mainland Asian tigers and the island tigers of the Sunda Islands."""
+
+words = text.replace("(", "").replace(")", "").replace(",", "").replace(".", "").split()
+word_count = {}
+for word in words:
+    word_lower = word.lower()
+    if word_lower in word_count:
+        word_count[word_lower] += 1
+    else:
+        word_count[word_lower] = 1
+
+print("Word count dictionary:", word_count)
+print("The count for 'the':", word_count.get('the', 0))
+print("-" * 50)
+
+
+# Change d_copy without affecting d_orig
+
+print("2a) Change d_copy without affecting d_orig:")
+d_orig = {123: "Coconut"}
+d_copy = d_orig.copy()  # use copy to avoid affecting original
+d_copy[123] = "Mango"
+print("d_orig:", d_orig)
+print("d_copy:", d_copy)
+print("-" * 50)
+
+
+# Explain how to solve problem if change affects original
+
+print("2b) Explanation:")
+print("If modifying d_copy affects d_orig, use the copy() method to create a new dictionary. This ensures d_orig remains unchanged.")
+print("-" * 50)
+
+
+# Generate TypeError: unhashable type: 'list'
+
+print("2c) Demonstrating TypeError for unhashable type:")
+try:
+    error_dict = {[1, 2, 3]: "value"}  # lists cannot be dictionary keys
+except TypeError as e:
+    print("Error:", e)
+print("-" * 50)
+
+
+# Challenges
+
+print("Challenges faced during the exercise:")
+print("- Understanding how to handle duplicate keys without functions or exceptions initially")
+print("- Remembering to use .copy() for dictionaries to avoid modifying the original")
+print("- Processing text for word count and handling punctuation manually")
+print("- Learning extended dictionary operations and loops for conversion from lists/tuples")
+print("- Managing user inputs cleanly while maintaining dictionary integrity")
