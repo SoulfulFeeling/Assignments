@@ -1,0 +1,95 @@
+# Take five inputs from the user and save it in a tuple
+
+print("1a) Enter five values to create a tuple:")
+my_tuple = tuple(input(f"Enter value {i+1}: ") for i in range(5))
+print("My tuple is:", my_tuple)
+print("-" * 50)
+
+# Assign a single element in a tuple (immutable example)
+
+print("1b) Assigning a single element in a tuple (immutable workaround):")
+# Tuples cannot be directly modified. Create a new tuple:
+new_tuple = ("new_value",) + my_tuple[1:]
+print("Modified tuple:", new_tuple)
+print("-" * 50)
+
+
+# Count repeated integers in a tuple
+
+print("1c) Counting repeated integers in a tuple:")
+my_tuple_c = (1,2,3,4,3,2,1,2,3,5,4,3,2,1)
+from collections import Counter
+count_result = Counter(my_tuple_c)
+print("Count of repeated integers:", count_result)
+print("-" * 50)
+
+
+# Concatenate tuple with itself and prove difference
+
+print("1d) Concatenate tuple with itself and check difference:")
+my_tuple_d = my_tuple_c + my_tuple_c
+print("Original tuple:", my_tuple_c)
+print("New tuple after concatenation:", my_tuple_d)
+print("Are they the same object?", my_tuple_c is my_tuple_d)
+print("-" * 50)
+
+# Explanation of illegal tuple operations
+
+print("1e) Why the following operations are illegal for tuples:")
+print("x = (1,2,3,4)")
+print("x.append(1)  ->  Tuples are immutable, cannot add elements")
+print("x[1] = 'hello'  ->  Tuples cannot have elements reassigned")
+print("del x[2]  ->  Tuples cannot have elements deleted")
+print("-" * 50)
+
+
+# Data type of unpacked tuple variables
+
+print("2a) Unpacking a tuple into variables:")
+(one, two, three, four) = (1, 2, 3, 4)
+print("Types:", type(one), type(two), type(three), type(four))
+print("-" * 50)
+
+
+# Extended unpacking example
+
+print("2b) Extended unpacking:")
+x = (1, 2, 3, 4)
+a, b, *c = x
+print("a:", a, "b:", b, "c:", c)
+print("-" * 50)
+
+
+# Extended unpacking with a, *b, c
+
+print("2c) Extended unpacking with a, *b, c:")
+a, *b, c = x
+print("a:", a, "b:", b, "c:", c)
+print("-" * 50)
+
+
+# Memory management of list and tuple
+
+print("3) Memory management:")
+my_x = [100, 200, 300, 400]
+my_y = (200, 300, 400, 500)
+
+print("List (my_x) memory addresses:")
+for i, val in enumerate(my_x):
+    print(f"Index {i}: Value {val} -> Address {hex(id(val))}")
+
+print("\nTuple (my_y) memory addresses:")
+for i, val in enumerate(my_y):
+    print(f"Index {i}: Value {val} -> Address {hex(id(val))}")
+
+print("-" * 50)
+
+
+# Challenges faced
+
+print("Challenges faced during the exercise:")
+print("- Understanding tuple immutability and workarounds")
+print("- Extended unpacking with * operator and predicting outputs")
+print("- Memory management differences between lists and tuples")
+print("- Counting repeated elements efficiently using Counter")
+print("- Organizing outputs clearly for readability")
