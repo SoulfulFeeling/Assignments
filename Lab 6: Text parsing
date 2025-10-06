@@ -1,0 +1,85 @@
+#  Word and Pattern Analysis - Python Project
+# Author: Ashley Davis
+# Description: This script counts words and characters,
+# finds frequencies, extracts emails and phone numbers,
+# and processes email usernames.
+
+import re
+from collections import Counter
+
+# Input text (provided story)
+text = """
+Once on a time and twice on a time, and all times together as ever I heard tell of,
+there was a tiny lassie who would weep all day to have the stars in the sky to play with;
+she wouldn’t have this, and she wouldn’t have that, but it was always the stars she would have...
+(The rest of the story continues as provided)
+The story is written by Roger Federer & Serina Williams.
+You can connect with the author at [rfederer@tennis.com] and [swilliams@tennis.com]
+Admin contact number: 1-888-111-2222
+
+# Word and Character Count (List)
+
+# Split the text into words using split()
+words_list = text.split()
+
+# Count words and characters
+word_count = len(words_list)
+char_count = len(text)
+
+print("Word Count:", word_count)
+print("Character Count:", char_count)
+
+# Create a histogram (word frequency) using Counter
+word_frequencies_list = Counter(words_list)
+
+print("\nWord Frequency (List-based count):")
+for word, freq in word_frequencies_list.most_common(10):  # show top 10
+    print(f"{word}: {freq}")
+
+# Repeat with a Dictionary
+
+# Using a dictionary to count manually
+word_freq_dict = {}
+
+for word in words_list:
+    word = word.lower().strip(",.!?;:-()[]")
+    word_freq_dict[word] = word_freq_dict.get(word, 0) + 1
+
+print("\nWord Frequency (Dictionary-based count):")
+for word, freq in list(word_freq_dict.items())[:10]:
+    print(f"{word}: {freq}")
+
+# Regular Expressions for Data Extraction
+
+# Extract phone numbers and emails using regex
+phone_pattern = r'\b\d{1}-\d{3}-\d{3}-\d{4}\b'
+email_pattern = r'[\w\.-]+@[\w\.-]+'
+
+phone_numbers = re.findall(phone_pattern, text)
+emails = re.findall(email_pattern, text)
+
+# Combine extracted data into one list
+extracted_data = phone_numbers + emails
+
+print("\nExtracted Phone Numbers and Emails:")
+print(extracted_data)
+
+# Email Username Processing
+
+# Extract usernames (before @)
+usernames = [email.split('@')[0] for email in emails]
+
+# Append @hotmail.com to each username
+hotmail_emails = [user + "@hotmail.com" for user in usernames]
+
+print("\nGenerated Hotmail Addresses:")
+print(hotmail_emails)
+
+# Summary
+
+print("\nSummary")
+print(f"Total Words: {word_count}")
+print(f"Total Characters: {char_count}")
+print(f"Unique Words: {len(word_freq_dict)}")
+print(f"Extracted Emails: {emails}")
+print(f"Extracted Phone Numbers: {phone_numbers}")
